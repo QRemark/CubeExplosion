@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CubeRandomColorChanger : MonoBehaviour
 {
-    public void ChangeColor(GameObject cube)
+    public void ChangeColor(Cube cube)
     {
         Color randomColor = new Color(Random.value, Random.value, Random.value);
 

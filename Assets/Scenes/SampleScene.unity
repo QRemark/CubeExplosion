@@ -333,7 +333,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9116330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b52cacc00bf19240b5077d3ce238990, type: 3}
+  m_Script: {fileID: 11500000, guid: 85017ad9a1825bb478331333a4f29b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cubeDestroyer: {fileID: 9116340}
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1299865905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b52cacc00bf19240b5077d3ce238990, type: 3}
+  m_Script: {fileID: 11500000, guid: 85017ad9a1825bb478331333a4f29b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cubeDestroyer: {fileID: 1299865915}
@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 1582370345}
   - component: {fileID: 1582370344}
   - component: {fileID: 1582370343}
-  - component: {fileID: 1582370350}
+  - component: {fileID: 1582370354}
   - component: {fileID: 1582370349}
   - component: {fileID: 1582370348}
   - component: {fileID: 1582370351}
@@ -1383,20 +1383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e428135942d38e7458916fe007829fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1582370350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582370342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b52cacc00bf19240b5077d3ce238990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubeDestroyer: {fileID: 1582370349}
-  cubeSpawn: {fileID: 1582370348}
 --- !u!114 &1582370351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,6 +1419,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e849943ec7e17d4499096a47d94a0d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1582370354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582370342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85017ad9a1825bb478331333a4f29b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeDestroyer: {fileID: 1582370349}
+  cubeSpawn: {fileID: 1582370348}
 --- !u!1 &2077315757
 GameObject:
   m_ObjectHideFlags: 0

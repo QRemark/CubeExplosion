@@ -7,7 +7,7 @@ public class CubeSpawn : MonoBehaviour
     [SerializeField] private CubeRandomColorChanger cubeColor;
     [SerializeField] private CubeExplosion cubeExplosion;
 
-    public void SpawnCubes(GameObject cube, float splitChance)
+    public void SpawnCubes(Cube cube, float splitChance)
     {
         int cubeMinCount = 2;
         int cubeMaxCount = 6;
@@ -15,37 +15,45 @@ public class CubeSpawn : MonoBehaviour
         float radiusNextPosition = 5f;
         float nextSplitChance = splitChance * 0.5f;
 
-        if (Random.value <= splitChance)
+        int cubeCount = Random.Range(cubeMinCount, cubeMaxCount + 1);
+
+        List<Cube> cubes = new List<Cube>();
+
+        for (int i = 0; i < cubeCount; i++)
         {
-            int cubeCount = Random.Range(cubeMinCount, cubeMaxCount + 1);
+            Vector3 randomPosition = cube.transform.position + new Vector3(Random.Range(-radiusNextPosition, radiusNextPosition),
+                Random.Range(-radiusNextPosition, radiusNextPosition), Random.Range(-radiusNextPosition, radiusNextPosition));
 
-            List<GameObject> cubes = new List<GameObject>();
+            Cube newCube = Instantiate(cube, randomPosition, Quaternion.identity);
 
-            for (int i = 0; i < cubeCount; i++)
-            {
-                Vector3 randomPosition = cube.transform.position + new Vector3(Random.Range(-radiusNextPosition, radiusNextPosition),
-                    Random.Range(-radiusNextPosition, radiusNextPosition), Random.Range(-radiusNextPosition, radiusNextPosition));
+            cubeScaler.ScaleCube(newCube);
 
-                GameObject newCube = Instantiate(cube, randomPosition, Quaternion.identity);
+            cubeColor.ChangeColor(newCube);
 
-                if (cubeScaler != null)
-                    cubeScaler.ScaleCube(newCube);
+            Cube splitController = newCube.GetComponent<Cube>();
 
-                if (cubeColor != null)
-                    cubeColor.ChangeColor(newCube);
+            if (splitController != null)
+                splitController.ChangeSplitChance(nextSplitChance);
 
-                CubeController splitController = newCube.GetComponent<CubeController>();
+            cubes.Add(newCube);
+        }
 
-                if (splitController != null)
-                    splitController.ChangeSplitChance(nextSplitChance);
+        cubeExplosion.ExployCube(cube.transform.position, cubes);
+    }
 
-                cubes.Add(newCube);
-            }
-
-            if (cubeExplosion != null)
-            {
-                cubeExplosion.ExployCube(cube.transform.position, cubes);
-            }
+    private void OnValidate()
+    {
+        if (cubeScaler == null)
+        {
+            Debug.Log("cubeScaler отсустствует!", this);
+        }
+        if (cubeColor == null)
+        {
+            Debug.Log("cubeColor отсутствует!", this);
+        }
+        if (cubeExplosion == null)
+        {
+            Debug.Log("cubeExplosion отсутствует!", this);
         }
     }
 }

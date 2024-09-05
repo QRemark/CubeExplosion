@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CubeDestroyer : MonoBehaviour
 {
-    public void DestroyCube(GameObject cube)
+    public void DestroyCube()
     {
-        Destroy(cube);
+        Destroy(gameObject);
     }
 }
